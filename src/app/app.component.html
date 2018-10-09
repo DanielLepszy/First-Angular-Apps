@@ -1,0 +1,9 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <app-add-tasks-component (singleTask)="getTask($event)"></app-add-tasks-component>
+</div>
+
+<div class="container">
+  <app-child-component [myTask]="allAddedTasks" (doneTasks)="getDoneTask($event)"></app-child-component>
+  <app-child2 [allDoneTasks]="doneTasks"></app-child2>
+</div>
