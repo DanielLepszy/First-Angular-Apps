@@ -10,28 +10,10 @@ import { ServiceService } from './Service/service.service';
   styleUrls: ["./app.component.css"],
   providers: [ServiceService]
 })
-export class AppComponent implements OnInit, DoCheck {
-  allClicksOnApp: number;
-  allAddedTasks: Array<string> = [];
-  doneTasks: Array<string> = [];
 
-  constructor(private serwis: ServiceService) { }
-  seleceted(event: string): void {
-    console.log(event);
-  }
-  getTask(event) {
-    this.allAddedTasks.push(event);
-  }
-  getDoneTask(event) {
-    this.doneTasks.push(event);
-    console.log(this.doneTasks);
-  }
-
+export class AppComponent implements OnInit {
   ngOnInit(): void {
-    this.serwis.getNewData().subscribe(new_data => this.allClicksOnApp = new_data);
-  }
-  ngDoCheck(): void {
-    // console.log('tak');
+
   }
 
 }
