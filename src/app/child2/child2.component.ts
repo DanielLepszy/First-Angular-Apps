@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ServiceService } from '../Service/service.service';
 import { TasksService } from '../Tasks/tasks.service';
 
 @Component({
@@ -8,22 +7,20 @@ import { TasksService } from '../Tasks/tasks.service';
   styleUrls: ['./child2.component.css'],
 
 })
-export class Child2Component implements OnInit {
+export class Child2Component {
 
   allDoneTasks: Array<string> = [];
-  amountOfClick2 = 0;
 
-  constructor(private taskService: TasksService) { }
-
-  sumClick() {
-    this.amountOfClick2 += 1;
+  constructor(private taskService: TasksService) {
+    this.taskService.getDoneTasksObs().subscribe((done_tasks: Array<string>) =>
+      this.allDoneTasks = done_tasks);
+      console.log('Odbiór danych przez komponent2');
   }
+
   clearAllTask() {
     console.log(this.allDoneTasks);
-    this.allDoneTasks.length=0;
+    this.allDoneTasks.length = 0;
 
-  }
-  ngOnInit() {
   }
 
 }

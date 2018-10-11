@@ -1,6 +1,5 @@
 import { Component, OnInit, EventEmitter } from "@angular/core";
 import { Output, Input } from "@angular/core";
-import { ServiceService } from '../Service/service.service';
 import { TasksService } from '../Tasks/tasks.service';
 
 @Component({
