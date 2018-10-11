@@ -1,4 +1,4 @@
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -11,13 +11,14 @@ export class TasksService {
 
   private taskListObs = new BehaviorSubject<Array<string>>(this.allAddedTasks);
   private doneTasksObs = new BehaviorSubject<Array<string>>(this.doneTasks);
+
   constructor() {
     this.taskListObs.next(this.allAddedTasks);
 
   }
-  seleceted(event: string): void {
-    console.log(event);
-  }
+  // seleceted(event: string): void {
+  //   console.log(event);
+  // }
   getTask(event) {
     this.allAddedTasks.push(event);
     this.taskListObs.next(this.allAddedTasks);

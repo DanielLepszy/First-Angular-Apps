@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { TasksService } from '../Tasks/tasks.service';
 
 @Component({
@@ -7,20 +7,22 @@ import { TasksService } from '../Tasks/tasks.service';
   styleUrls: ['./child2.component.css'],
 
 })
-export class Child2Component {
+export class Child2Component implements OnChanges {
+
 
   allDoneTasks: Array<string> = [];
 
   constructor(private taskService: TasksService) {
     this.taskService.getDoneTasksObs().subscribe((done_tasks: Array<string>) =>
       this.allDoneTasks = done_tasks);
-      console.log('Odbiór danych przez komponent2');
+    console.log('Odbiór danych przez komponent2');
   }
 
   clearAllTask() {
-    console.log(this.allDoneTasks);
     this.allDoneTasks.length = 0;
 
   }
-
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(this.allDoneTasks);
+  }
 }
