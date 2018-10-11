@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ServiceService } from '../Service/service.service';
+import { TasksService } from '../Tasks/tasks.service';
 
 @Component({
   selector: 'app-child2',
@@ -8,16 +9,14 @@ import { ServiceService } from '../Service/service.service';
 
 })
 export class Child2Component implements OnInit {
-  @Input()
+
   allDoneTasks: Array<string> = [];
   amountOfClick2 = 0;
 
-  constructor(private service: ServiceService) { }
+  constructor(private taskService: TasksService) { }
 
   sumClick() {
     this.amountOfClick2 += 1;
-    this.service.addClicks();
-
   }
   clearAllTask() {
     console.log(this.allDoneTasks);

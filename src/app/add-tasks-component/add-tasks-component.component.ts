@@ -1,31 +1,28 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { TasksService } from '../Tasks/tasks.service';
 
 @Component({
   selector: 'app-add-tasks-component',
   templateUrl: './add-tasks-component.component.html',
   styleUrls: ['./add-tasks-component.component.css']
 })
-export class AddTasksComponentComponent implements OnInit {
+export class AddTasksComponentComponent {
   task = "";
 
-  @Output()
-  singleTask = new EventEmitter<string>();
+  constructor(private taskService: TasksService) {
 
-  constructor() { }
+  }
   saveTask(event) {
     this.task = event.target.value;
   }
-  signleData() {
+  singleData() {
     if (this.task !== "") {
-      this.singleTask.emit(this.task);
+      this.taskService.getTask(this.task);
       this.task = "";
+      console.log('Serwis odbiera tasks');
     }
 
 
-  }
-
-
-  ngOnInit() {
   }
 
 }
