@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter } from "@angular/core";
 import { Output, Input } from "@angular/core";
 import { TasksService } from '../Tasks/tasks.service';
+import { Task } from '../Task/TaskObcject';
 
 @Component({
   selector: "app-child-component",
@@ -10,11 +11,13 @@ import { TasksService } from '../Tasks/tasks.service';
 })
 export class ChildComponentComponent {
 
-  myTask: Array<string> = [];
+  myTask: Array<Task> = [];
 
   constructor(private taskService: TasksService) {
-    this.taskService.getTaskListObs().subscribe((task: Array<string>) => {
+    // Odbior danych z serwisu
+    this.taskService.getTaskListObs().subscribe((task: Array<Task>) => {
       this.myTask = task;
+      console.log(this.myTask);
     });
   }
 
@@ -24,6 +27,6 @@ export class ChildComponentComponent {
   }
   deleteClick(del) {
     this.myTask.splice(this.myTask.indexOf(del), 1);
-    // console.log(this.myTask);
+
   }
 }

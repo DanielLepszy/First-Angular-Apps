@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { TasksService } from '../Tasks/tasks.service';
+import { Task } from '../Task/TaskObcject';
 
 @Component({
   selector: 'app-child2',
@@ -10,12 +11,12 @@ import { TasksService } from '../Tasks/tasks.service';
 export class Child2Component implements OnChanges {
 
 
-  allDoneTasks: Array<string> = [];
+  allDoneTasks: Array<Task> = [];
 
   constructor(private taskService: TasksService) {
-    this.taskService.getDoneTasksObs().subscribe((done_tasks: Array<string>) =>
+    // Odbior danych
+    this.taskService.getDoneTasksObs().subscribe((done_tasks: Array<Task>) =>
       this.allDoneTasks = done_tasks);
-    console.log('Odbiór danych przez komponent2');
   }
 
   clearAllTask() {

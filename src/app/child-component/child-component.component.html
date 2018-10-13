@@ -2,7 +2,7 @@
   <p>Zadania do wykonania: {{myTask.length}}</p>
   <ul *ngIf="myTask.length>0">
     <li *ngFor="let tasks of myTask">
-      <p>{{tasks}}</p>
+      <p>{{tasks.task_content}}</p>
       <button type="button" class="btn btn-primary" (click)="doneClick(tasks)">Done</button>
       <button type="button" class="btn btn-primary" (click)="deleteClick(tasks)">Delete</button>
     </li>

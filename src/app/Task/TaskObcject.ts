@@ -6,8 +6,16 @@ export interface Task {
 
 }
 export class Status {
-  New = 'NEW';
-  Done = 'DONE';
-  Canceled = "CANCELED";
+  public new: string;
+  public done: string;
+  public canceled: string;
+  constructor() {
+    this.new = 'NEW';
+    this.done = 'DONE';
+    this.canceled = "CANCELED";
+  }
+
 
 }
+const st = new Status();
+const abc = st.done;

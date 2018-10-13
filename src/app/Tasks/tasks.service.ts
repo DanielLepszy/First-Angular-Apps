@@ -1,38 +1,41 @@
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { Task, Status } from '../Task/TaskObcject';
+
+
+const status_object = new Status();
 
 @Injectable({
   providedIn: 'root'
 })
 export class TasksService {
 
-  private allAddedTasks: Array<string> = [];
-  private doneTasks: Array<string> = [];
+  taskStatus:Status = status_object;
+  private allAddedTasks: Array<Task> = [];
+  private doneTasks: Array<Task> = [];
 
-  private taskListObs = new BehaviorSubject<Array<string>>([]);
-  private doneTasksObs = new BehaviorSubject<Array<string>>([]);
-
+  private taskListObs = new BehaviorSubject<Array<Task>>([]);
+  private doneTasksObs = new BehaviorSubject<Array<Task>>([]);
   constructor() {
     this.taskListObs.next(this.allAddedTasks);
-
   }
-  // seleceted(event: string): void {
-  //   console.log(event);
-  // }
-  getTask(event) {
+// Przesladnie tasku do serwisu
+  getTask(event:Task) {
     this.allAddedTasks.push(event);
+    event.status= this.taskStatus.new;
     this.taskListObs.next(this.allAddedTasks);
-    console.log('Przesłanie tasku do serwisu');
+    // console.log('Przesłanie tasku do serwisu');
   }
   getDoneTask(event) {
     this.doneTasks.push(event);
     this.doneTasksObs.next(this.doneTasks);
     console.log('Przesłanie do Komponentu_2');
   }
-  getTaskListObs(): Observable<Array<string>> {
+  getTaskListObs(): Observable<Array<Task>> {
     return this.taskListObs.asObservable();
   }
-  getDoneTasksObs(): Observable<Array<string>> {
+  getDoneTasksObs(): Observable<Array<Task>> {
     return this.doneTasksObs.asObservable();
   }
 }
+
