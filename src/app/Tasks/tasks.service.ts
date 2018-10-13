@@ -9,8 +9,8 @@ export class TasksService {
   private allAddedTasks: Array<string> = [];
   private doneTasks: Array<string> = [];
 
-  private taskListObs = new BehaviorSubject<Array<string>>(this.allAddedTasks);
-  private doneTasksObs = new BehaviorSubject<Array<string>>(this.doneTasks);
+  private taskListObs = new BehaviorSubject<Array<string>>([]);
+  private doneTasksObs = new BehaviorSubject<Array<string>>([]);
 
   constructor() {
     this.taskListObs.next(this.allAddedTasks);
