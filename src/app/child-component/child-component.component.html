@@ -1,5 +1,5 @@
 <div>
-  <p>Zadania do wykonania: {{myTask.length}}</p>
+  <h2>Tasks To Do: {{myTask.length}}</h2>
   <ul *ngIf="myTask.length>0">
     <li *ngFor="let tasks of myTask">
       <p>{{tasks.task_content}}</p>
