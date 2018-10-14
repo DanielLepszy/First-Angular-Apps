@@ -24,7 +24,7 @@ export class TasksService {
     this.allAddedTasks.push(event);
     event.status= this.taskStatus.new;
     this.taskListObs.next(this.allAddedTasks);
-    // console.log('Przesłanie tasku do serwisu');
+
   }
   getDoneTask(event) {
     this.doneTasks.push(event);

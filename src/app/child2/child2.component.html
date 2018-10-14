@@ -1,7 +1,7 @@
 <h1>Done Tasks</h1>
 <ul *ngIf ="allDoneTasks.length>0">
   <li *ngFor = "let task of allDoneTasks">
-    {{task}}
+    {{task.task_content}}
   </li>
 </ul>
 <button type="button" class="btn btn-primary" (click)="clearAllTask()">Clear All
