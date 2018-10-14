@@ -6,6 +6,7 @@ import { FormsModule } from "@angular/forms";
 import { ChildComponentComponent } from "./child-component/child-component.component";
 import { Child2Component } from './child2/child2.component';
 import { AddTasksComponentComponent } from "./add-tasks-component/add-tasks-component.component";
+import { CheckedDirective } from './shared/checked.directive';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { AddTasksComponentComponent } from "./add-tasks-component/add-tasks-comp
     ChildComponentComponent,
     Child2Component,
     AddTasksComponentComponent,
+    CheckedDirective,
 
   ],
   imports: [BrowserModule, FormsModule],
