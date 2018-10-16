@@ -26,9 +26,12 @@ export class TasksService {
     this.taskListObs.next(this.allAddedTasks);
 
   }
-  getDoneTask(event) {
+  getDoneTask(event:Task) {
+    event.endDate = new Date();
+    event.status =this.taskStatus.done;
     this.doneTasks.push(event);
     this.doneTasksObs.next(this.doneTasks);
+
     console.log('Przesłanie do Komponentu_2');
   }
   getTaskListObs(): Observable<Array<Task>> {

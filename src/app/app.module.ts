@@ -6,7 +6,11 @@ import { FormsModule } from "@angular/forms";
 import { ChildComponentComponent } from "./child-component/child-component.component";
 import { Child2Component } from './child2/child2.component';
 import { AddTasksComponentComponent } from "./add-tasks-component/add-tasks-component.component";
-import { CheckedDirective } from './shared/checked.directive';
+import { CheckedDirective } from './Shared/checked.directive';
+import { DoneTaskDatesDirective } from './Shared/done-task-dates.directive';
+import { SortDataPipe } from './Shared/sort-data.pipe';
+
+
 
 
 @NgModule({
@@ -17,10 +21,12 @@ import { CheckedDirective } from './shared/checked.directive';
     Child2Component,
     AddTasksComponentComponent,
     CheckedDirective,
+    DoneTaskDatesDirective,
+    SortDataPipe,
 
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

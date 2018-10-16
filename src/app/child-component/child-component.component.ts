@@ -16,8 +16,7 @@ export class ChildComponentComponent {
   constructor(private taskService: TasksService) {
     // Odbior danych z serwisu
     this.taskService.getTaskListObs().subscribe((task: Array<Task>) => {
-      this.myTask = task;
-      console.log(this.myTask);
+      this.myTask = task.slice();
     });
   }
 

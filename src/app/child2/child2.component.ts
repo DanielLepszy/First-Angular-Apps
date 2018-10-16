@@ -23,6 +23,17 @@ export class Child2Component implements OnChanges {
     this.allDoneTasks.length = 0;
 
   }
+  sortDoneTask(array: Array<Task>) {
+
+    console.log(array.sort((a, b) => {
+      if (a.task_content.toLowerCase() > b.task_content.toLowerCase()) {
+        return 1;
+      } else {
+        return -1;
+      }
+    })
+  );
+  }
   ngOnChanges(changes: SimpleChanges): void {
     console.log(this.allDoneTasks);
   }

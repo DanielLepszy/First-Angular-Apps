@@ -1,9 +1,8 @@
 <h2>Done Tasks</h2>
-<ul *ngIf ="allDoneTasks.length>0">
-  <li appChecked *ngFor = "let task of allDoneTasks">
-   <p>{{task.task_content}}</p>
+<ul *ngIf="allDoneTasks.length>0">
+  <li appChecked *ngFor="let task of allDoneTasks" appDoneTaskDates [date]="task.endDate">
+    <p>{{task.task_content }}</p>
   </li>
 </ul>
-<button type="button" class="btn btn-primary" (click)="clearAllTask()">Clear All
-</button>
-
+<button class="btn btn-primary" (click)="clearAllTask()">Clear All</button>
+<button class="btn btn-primary" (click)="sortDoneTask(allDoneTasks)">Sort</button>
